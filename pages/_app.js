@@ -2,9 +2,11 @@ import React from 'react'
 import App from 'next/app'
 import Head from 'next/head'
 
+import withData from '../lib/apollo'
+
 import Layout from '../components/Layout'
 
-export default class MyApp extends App {
+class MyApp extends App {
   render () {
     const { Component, pageProps } = this.props
     return (
@@ -16,3 +18,6 @@ export default class MyApp extends App {
     )
   }
 }
+
+export default withData(MyApp)
+// Permet d'injecter la donnée dans l'application
